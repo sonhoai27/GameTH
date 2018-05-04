@@ -5,7 +5,6 @@ import android.content.res.AssetFileDescriptor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.Picture;
 import android.graphics.Typeface;
 import android.graphics.drawable.PictureDrawable;
 import android.media.AudioAttributes;
@@ -14,7 +13,7 @@ import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.graphics.BitmapFactory.Options;
 import android.os.Build;
-import com.sonhoai.sonho.gameth.animation.Frame;
+
 import com.sonhoai.sonho.gameth.animation.LoopingAnimation;
 
 import java.io.IOException;
@@ -28,8 +27,8 @@ public class Assets {
 
     private static SoundPool soundPool;
 
-    public static Bitmap menuBackground, gamebackground, gameloadingbackground, gameoverbackground, cactus, menuboard;
-    public static Bitmap continueButton, quitButton, pauseButton, pauseTouchButton, newButton, exitButton, resumeButton, restartButton;
+    public static Bitmap menuBackground, gameBackground, boom, player, fruit;
+    public static Bitmap continueButton, quitButton, pauseButton, pauseTouchButton, newButton, exitButton, resumeButton, restartButton, scoreButton;
     public static LoopingAnimation animation;
 
     public static int hitSoundId = -1, wingSoundId = -1, pointSoundId = -1;
@@ -38,14 +37,17 @@ public class Assets {
 
     public static void load() {
 //        gameloadingbackground = Assets.loadBitmap("game_loading.jpg", true);
-        gamebackground = Assets.loadBitmap("gamebackground.jpg", true);
-//        menuBackground = Assets.loadBitmap("menubackground.jpg", true);
-//        cactus = Assets.loadBitmap("cactus.png", true);
+        menuBackground = Assets.loadBitmap("menuBackground.jpg", true);
+        gameBackground = Assets.loadBitmap("gameBackground.jpg", true);
+        boom = Assets.loadBitmap("boom.png", true);
+        player = Assets.loadBitmap("player.png", true);
+        fruit = Assets.loadBitmap("fruit.png", true);
 //        gameoverbackground = Assets.loadBitmap("gameover_bg.png", true);
 //        menuboard = Assets.loadBitmap("menu.png", true);
 //
-//        newButton = Assets.loadBitmap("new_button.png", true);
-//        continueButton = Assets.loadBitmap("continue_button.png", true);
+        newButton = Assets.loadBitmap("new_button.png", true);
+        continueButton = Assets.loadBitmap("continue_button.png", true);
+        scoreButton = Assets.loadBitmap("score_button.png", true);
 //        quitButton = Assets.loadBitmap("quit_button.png", true);
 //        pauseButton = Assets.loadBitmap("pause.png", true);
 //        pauseTouchButton = Assets.loadBitmap("pause_touch.png", true);

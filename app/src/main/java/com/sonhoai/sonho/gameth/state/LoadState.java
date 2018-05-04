@@ -10,16 +10,16 @@ public class LoadState extends State {
     @Override
     public void init() {
         load();
+        setCurrentState(new MenuState());
     }
 
     @Override
     public void update(float delta) {
-
+        setCurrentState(new MenuState());
     }
 
     @Override
     public void render(Painter g) {
-        g.drawImage(Assets.gamebackground, 0, 0, GameMainActivity.GAME_WIDTH, GameMainActivity.GAME_HEIGHT);
 
     }
 
@@ -30,12 +30,10 @@ public class LoadState extends State {
 
     @Override
     public void load() {
-        super.load();
         Assets.load();
     }
 
     @Override
     public void unload() {
-        super.unload();
     }
 }
