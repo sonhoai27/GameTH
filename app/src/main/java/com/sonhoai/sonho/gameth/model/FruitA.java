@@ -13,29 +13,20 @@ import com.sonhoai.sonho.gameth.util.Painter;
 public class FruitA {
     private float x, y;
     private int width, height;
-    private Rect rect;
     private Bitmap fruit;
     private int speed;
-    private static Boolean isPress = false;
 
-    public FruitA(float x, float y, int width, int height) {
+    public FruitA(float x, float y, int width, int height, Bitmap bitmap, int speed) {
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
-        fruit = Assets.fruit;
-        speed = (int) (GameMainActivity.GAME_HEIGHT*0.5/GameView.FPS);
-
-        rect = new Rect((int) x, (int) y, (int) (x + width), (int) (y + height));
+        fruit = bitmap;
+        this.speed = speed;
     }
 
     public void update() {
         fly();
-        updateRect();
-    }
-
-    public void updateRect() {
-        rect.set((int) x, (int) y, (int) x + width, (int) y + height);
     }
     public void render(Painter g) {
         g.drawImage(fruit, (int) x, (int) y, width, height);
@@ -54,5 +45,37 @@ public class FruitA {
             //random vị trí y, từ trên xuống dưới
             y = (int) Math.floor(Math.random() * (GameMainActivity.GAME_HEIGHT - height));
         }
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public float getX() {
+        return x;
+    }
+
+    public void setX(float x) {
+        this.x = x;
+    }
+
+    public float getY() {
+        return y;
+    }
+
+    public void setY(float y) {
+        this.y = y;
     }
 }

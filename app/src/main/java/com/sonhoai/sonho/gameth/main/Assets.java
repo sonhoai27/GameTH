@@ -27,41 +27,35 @@ public class Assets {
 
     private static SoundPool soundPool;
 
-    public static Bitmap menuBackground, gameBackground, boom, player, fruit;
-    public static Bitmap continueButton, quitButton, pauseButton, pauseTouchButton, newButton, exitButton, resumeButton, restartButton, scoreButton;
-    public static LoopingAnimation animation;
+    public static Bitmap menuBackground, gameBackground, boom, player, fruit, tomato;
+    public static Bitmap continueButton, quitButton, boxScore, gameOver, newButton, pauseMenu, resumeButton, menuCompletion, scoreButton, userButton;
 
-    public static int hitSoundId = -1, wingSoundId = -1, pointSoundId = -1;
+    public static int hitSoundId = -1, flySoundId = -1, overSoundId = -1;
 
     public static Typeface typeface;
 
     public static void load() {
-//        gameloadingbackground = Assets.loadBitmap("game_loading.jpg", true);
         menuBackground = Assets.loadBitmap("menuBackground.jpg", true);
         gameBackground = Assets.loadBitmap("gameBackground.jpg", true);
+        menuCompletion = Assets.loadBitmap("menuCompletion.png", true);
         boom = Assets.loadBitmap("boom.png", true);
+        userButton = Assets.loadBitmap("userButton.png", true);
         player = Assets.loadBitmap("player.png", true);
         fruit = Assets.loadBitmap("fruit.png", true);
-//        gameoverbackground = Assets.loadBitmap("gameover_bg.png", true);
-//        menuboard = Assets.loadBitmap("menu.png", true);
-//
+        tomato = Assets.loadBitmap("tomato.png", true);
+        quitButton = Assets.loadBitmap("quit_button.png", true);
+        boxScore = Assets.loadBitmap("box_score.png", true);
+        gameOver = Assets.loadBitmap("game_over.png", true);
+        resumeButton = Assets.loadBitmap("resumeButton.png", true);
+        pauseMenu = Assets.loadBitmap("pauseMenu.png", true);
         newButton = Assets.loadBitmap("new_button.png", true);
         continueButton = Assets.loadBitmap("continue_button.png", true);
-        scoreButton = Assets.loadBitmap("score_button.png", true);
-//        quitButton = Assets.loadBitmap("quit_button.png", true);
-//        pauseButton = Assets.loadBitmap("pause.png", true);
-//        pauseTouchButton = Assets.loadBitmap("pause_touch.png", true);
-//        exitButton = Assets.loadBitmap("exit_button.png", true);
-//        restartButton = Assets.loadBitmap("restart_button.png", true);
-//        resumeButton = Assets.loadBitmap("resum_button.png", true);
-//
-//
-//        typeface = Typeface.create( Typeface.createFromAsset(GameMainActivity.assets, "fonts/pixel.TTF"), Typeface.BOLD);
-//
-//        soundPool = buildSoundPool();
-//        hitSoundId = loadSound("sounds/Hit.mp3");
-//        wingSoundId = loadSound("sounds/Wing.mp3");
-//        pointSoundId = loadSound("sounds/Point.mp3");
+        scoreButton = Assets.loadBitmap("score_bottom.png", true);
+        typeface = Typeface.create( Typeface.createFromAsset(GameMainActivity.assets, "font.ttf"), Typeface.BOLD);
+        soundPool = buildSoundPool();
+        hitSoundId = loadSound("audio/hit.wav");
+        flySoundId = loadSound("audio/fly.mp3");
+        overSoundId = loadSound("audio/over.wav");
 
     }
 

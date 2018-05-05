@@ -18,7 +18,7 @@ public class GameMainActivity extends AppCompatActivity {
     public static GameView sGame;
     public static AssetManager assets;
     private static SharedPreferences prefs;
-    private static final String highScoreKey = "highScoreKey";
+    private static final String highScoreKey = "HIGHSCORE";
     private static int highScore;
     public static Context context;
 
@@ -48,13 +48,19 @@ public class GameMainActivity extends AppCompatActivity {
     }
 
     public static void setHighScore(int highScore) {
-        GameMainActivity.highScore = highScore;
         SharedPreferences.Editor editor = prefs.edit();
-        editor.putInt(highScoreKey, highScore);
-        editor.commit();
+        if(retrieveHighScoreState() < highScore){
+            GameMainActivity.highScore = highScore;
+            editor.putInt(highScoreKey, highScore);
+            editor.commit();
+        }
     }
 
     private int retrieveHighScore() {
+        return prefs.getInt(highScoreKey, 0);
+    }
+
+    private static int retrieveHighScoreState() {
         return prefs.getInt(highScoreKey, 0);
     }
 

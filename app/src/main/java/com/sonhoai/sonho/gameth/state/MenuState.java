@@ -12,7 +12,7 @@ import com.sonhoai.sonho.gameth.util.UIButton;
 
 public class MenuState extends State {
     private UIButton playButton;
-    private UIButton scoreButton;
+    private UIButton userButton;
     @Override
     public void init() {
         showMenu();
@@ -27,14 +27,14 @@ public class MenuState extends State {
     public void render(Painter g) {
         g.drawImage(Assets.menuBackground, 0, 0, GameMainActivity.GAME_WIDTH, GameMainActivity.GAME_HEIGHT);
         playButton.render(g, false);
-        scoreButton.render(g, false);
+        userButton.render(g, false);
     }
 
     @Override
     public boolean onTouch(MotionEvent e, int scaledX, int scaledY) {
         if (e.getAction() == MotionEvent.ACTION_DOWN) {
             playButton.onTouchDown(scaledX, scaledY);
-            scoreButton.onTouchDown(scaledX, scaledY);
+            userButton.onTouchDown(scaledX, scaledY);
         }
         if(e.getAction() == MotionEvent.ACTION_UP){
             Log.i("AAA", "AAA");
@@ -56,7 +56,7 @@ public class MenuState extends State {
     }
 
     private void showMenu(){
-        playButton = new UIButton(250, 500, 450, 580, Assets.newButton);
-        scoreButton = new UIButton(250, 600, 450, 680, Assets.scoreButton);
+        playButton = new UIButton(250, 500, 250+200, 500+200, Assets.newButton);
+        userButton = new UIButton(250, 800, 250+200, 800+200, Assets.userButton);
     }
 }

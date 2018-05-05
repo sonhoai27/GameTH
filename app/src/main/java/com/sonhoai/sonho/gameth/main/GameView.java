@@ -8,6 +8,7 @@ import android.graphics.Rect;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import com.sonhoai.sonho.gameth.state.LoadState;
+import com.sonhoai.sonho.gameth.state.PauseState;
 import com.sonhoai.sonho.gameth.state.State;
 import com.sonhoai.sonho.gameth.util.InputHandler;
 import com.sonhoai.sonho.gameth.util.Painter;
@@ -67,11 +68,18 @@ public class GameView extends SurfaceView implements Runnable {
 
     //PAUSE AND RESUME GAME
     public void setPause() {
-
+        PauseState pauseState = new PauseState();
+        pauseState.init();
+        preState = currentState;//set currentstate
+        currentState = pauseState;
+        inputHandler.setCurrentState(currentState);
     }
 
     public void setResume() {
-
+        if(preState!=null){
+            currentState = preState;
+            inputHandler.setCurrentState(currentState);
+        }
     }
 
     public void setCurrentState(State newState) {
