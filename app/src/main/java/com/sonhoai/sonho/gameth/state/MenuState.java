@@ -1,14 +1,22 @@
 package com.sonhoai.sonho.gameth.state;
 
+import android.app.AlertDialog;
 import android.util.Log;
+import android.util.PrintWriterPrinter;
+import android.view.ContextThemeWrapper;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
+import android.view.View;
 import android.widget.Toast;
 
+import com.sonhoai.sonho.gameth.R;
 import com.sonhoai.sonho.gameth.main.Assets;
 import com.sonhoai.sonho.gameth.main.GameMainActivity;
 import com.sonhoai.sonho.gameth.main.GameView;
 import com.sonhoai.sonho.gameth.util.Painter;
 import com.sonhoai.sonho.gameth.util.UIButton;
+
+import static com.sonhoai.sonho.gameth.main.GameMainActivity.context;
 
 public class MenuState extends State {
     private UIButton playButton;
@@ -41,6 +49,9 @@ public class MenuState extends State {
             if(playButton.isPressed(scaledX, scaledY)){
                 setCurrentState(new PlayState());
             }
+            if(userButton.isPressed(scaledX,scaledY)){
+                GameMainActivity.showHighScore();
+            }
         }
         return true;
     }
@@ -57,6 +68,6 @@ public class MenuState extends State {
 
     private void showMenu(){
         playButton = new UIButton(250, 500, 250+200, 500+200, Assets.newButton);
-        userButton = new UIButton(250, 800, 250+200, 800+200, Assets.userButton);
+        userButton = new UIButton(250, 800, 250+200, 800+200, Assets.scoreButton);
     }
 }

@@ -46,6 +46,7 @@ public class GameOverState extends State {
                 setCurrentState(new PlayState());
             }
             if(btnQuit.isPressed(scaledX,scaledY)){
+                GameMainActivity.setHighScore(score);
                 setCurrentState(new MenuState());
             }
         }

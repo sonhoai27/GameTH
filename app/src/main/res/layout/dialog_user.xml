@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="32dp"
+    android:background="#fff"
+    android:gravity="center_vertical|center_horizontal"
+    android:orientation="vertical">
 
+    <TextView
+        android:textStyle="bold"
+        android:fontFamily=""
+        android:textSize="24dp"
+        android:textColor="#666"
+        android:gravity="center"
+        android:id="@+id/btnMyProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/myprofile"
+        android:text="Change Password" />
+
+    <TextView
+        android:textStyle="bold"
+        android:layout_marginTop="32dp"
+        android:fontFamily=""
+        android:textSize="24dp"
+        android:textColor="#666"
+        android:gravity="center"
+        android:id="@+id/btnMyScore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/highscore"
+        android:text="Score Charts" />
 </LinearLayout>
