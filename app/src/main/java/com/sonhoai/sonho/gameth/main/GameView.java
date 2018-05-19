@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 
+import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import com.sonhoai.sonho.gameth.state.LoadState;
@@ -101,7 +102,6 @@ public class GameView extends SurfaceView implements Runnable {
         long updateDurationMillis = 0;
         long sleepDurationMillis = 0;
 
-        //Game loop
         while(running) {
 
             long beforeUpdateRender = System.nanoTime();
@@ -109,9 +109,10 @@ public class GameView extends SurfaceView implements Runnable {
             updateAndRender(deltaMillis);
 
             updateDurationMillis = (System.nanoTime() - beforeUpdateRender) / 1000000L;
-            sleepDurationMillis = Math.max(2, 17 - updateDurationMillis);
+            sleepDurationMillis = (long) Math.max(2, 1.0/FPS*1000 - updateDurationMillis);
 
             try {
+                Log.i("GIAY", sleepDurationMillis+"");
                 Thread.sleep(sleepDurationMillis);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -151,12 +152,14 @@ public class GameView extends SurfaceView implements Runnable {
         }
     }
 
+    //update vi trí,ve lai
     private void updateAndRender(long delta) {
         currentState.update(delta / 1000f);
         currentState.render(graphics);
         renderGameImage();
     }
 
+    //update xong thì dc ve ngược lại trên màn hình
     private void renderGameImage() {
         Canvas screen = getHolder().lockCanvas();
         if (screen != null) {

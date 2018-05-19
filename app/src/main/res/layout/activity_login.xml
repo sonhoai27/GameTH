@@ -10,6 +10,7 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
     <EditText
+        android:inputType="textEmailAddress"
         android:textColorHint="#fff"
         android:padding="16dp"
         android:background="@drawable/gradient"
@@ -18,6 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <EditText
+        android:inputType="textPassword"
         android:layout_marginTop="32dp"
         android:textColorHint="#fff"
         android:padding="16dp"

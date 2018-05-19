@@ -6,8 +6,19 @@
     android:background="#fff"
     android:gravity="center_vertical|center_horizontal"
     android:orientation="vertical">
-
     <TextView
+        android:textStyle="bold"
+        android:fontFamily=""
+        android:textSize="24dp"
+        android:textColor="#666"
+        android:gravity="center"
+        android:id="@+id/btnMyScore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/highscore"
+        android:text="Score Charts" />
+    <TextView
+        android:layout_marginTop="32dp"
         android:textStyle="bold"
         android:fontFamily=""
         android:textSize="24dp"
@@ -26,9 +37,9 @@
         android:textSize="24dp"
         android:textColor="#666"
         android:gravity="center"
-        android:id="@+id/btnMyScore"
+        android:id="@+id/btnLogout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/highscore"
-        android:text="Score Charts" />
+        android:drawableLeft="@drawable/logout"
+        android:text="Log out" />
 </LinearLayout>

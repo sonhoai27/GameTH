@@ -33,6 +33,9 @@ public class LoginActivity extends AppCompatActivity {
         init();
 
         checkUser();
+
+        Log.i("AAAAA", SharedPreferencesHelper.getInstance(getApplicationContext()).getToken());
+        Log.i("AAAAA", SharedPreferencesHelper.getInstance(getApplicationContext()).getIdUser());
     }
     private void init(){
         SharedPreferencesHelper.getInstance(getApplicationContext());
@@ -144,6 +147,8 @@ public class LoginActivity extends AppCompatActivity {
                                     Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
                                     token = SharedPreferencesHelper.getInstance(getApplicationContext()).getToken();
                                     checkUser();
+                                }else {
+                                    Toast.makeText(getApplicationContext(), "ERROR", Toast.LENGTH_SHORT).show();
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
